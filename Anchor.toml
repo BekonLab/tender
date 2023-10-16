@@ -2,13 +2,13 @@
 seeds = false
 skip-lint = false
 [programs.localnet]
-tender = "BHQvQgoMZhCKuVeoVhsy8agZQYwMuvzXwrEYoEHHDgGJ"
+tender = "E6E7kfSE21wnKrpvtEQsCj3XFnZyeXu6UjoLcjogqbLQ"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
+cluster = "localnet"
 wallet = "/Users/ricardocastelloroman/.config/solana/id.json"
 
 [scripts]

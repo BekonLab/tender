@@ -228,7 +228,6 @@ describe("tender", () => {
         [proposal] = anchor.web3.PublicKey.findProgramAddressSync(
             [
                 Buffer.from("proposal", "utf-8"),
-                proposalCreator.publicKey.toBuffer(),
                 proposalId,
             ],
             program.programId
@@ -292,7 +291,6 @@ describe("tender", () => {
         const proposalParams = {
             id: [...proposalId],
             name: "Build a football pitch",
-            description: "Proposal to build a football pitch for community benefit",
             proposalUri,
         };
         await program.methods

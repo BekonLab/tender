@@ -10,7 +10,6 @@ use {
 pub struct InitProposalParams {
     id: [u8; 16],
     name: String,
-    description: String,
     proposal_uri: String
 }
 
@@ -31,7 +30,6 @@ pub struct InitProposal<'info> {
         payer = signer,
         seeds = [
             b"proposal".as_ref(),
-            signer.key().as_ref(),
             params.id.as_ref(),
         ],
         bump
@@ -146,14 +144,12 @@ pub fn handler<'info>(ctx: Context<InitProposal>, params: InitProposalParams) ->
     (*ctx.accounts.proposal).id = params.id;
     (*ctx.accounts.proposal).authority = signer_key;
     (*ctx.accounts.proposal).vault = ctx.accounts.vault.key();
-    (*ctx.accounts.proposal).description = params.description;
     (*ctx.accounts.proposal).state = RequestState::SigningOff;
     (*ctx.accounts.proposal).vault_bump = *ctx.bumps.get("vault").unwrap();
     (*ctx.accounts.proposal).bump = *ctx.bumps.get("proposal").unwrap();
 
     let proposal_seeds = &[
         b"proposal".as_ref(),
-        signer_key.as_ref(),
         ctx.accounts.proposal.id.as_ref(),
         &[ctx.accounts.proposal.bump],
     ];
