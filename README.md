@@ -6,11 +6,14 @@ It will serve as an extension of the spl-governance, leveraging its fundamental 
 
 ## Key dependencies
 
-- solana-cli: 1.14.25
-- anchor-cli: 0.28.0
+- solana-cli: 1.17
+- anchor-cli: 0.29
 
 ## Run program tests
 
 1. git clone https://github.com/BekonLab/tender
 2. anchor build
-3. anchor test
+3. solana-test-validator
+4. anchor deploy
+5. close local validator
+6. anchor test

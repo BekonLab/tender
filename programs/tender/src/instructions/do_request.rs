@@ -35,7 +35,7 @@ pub struct DoRequest<'info> {
 
 pub fn handler<'info>(ctx: Context<DoRequest>, price: u64) -> Result<()> {
     (*ctx.accounts.request).price = price;
-    (*ctx.accounts.request).bump = *ctx.bumps.get("request").unwrap();
+    (*ctx.accounts.request).bump = ctx.bumps.request;
 
     Ok(())
 }
